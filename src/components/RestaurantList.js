@@ -17,6 +17,22 @@ function RestaurantList() {
     };
     fecthData();
   }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      const response = await RestaurantsFinder.delete(`/${id}`);
+
+      // console.log(response);
+      setRestaurants(
+        restaurants.filter((restaurant) => {
+          return restaurant.id !== id;
+        })
+      );
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   return (
     <div>
       <table className="table table-hover table-dark">
@@ -43,7 +59,12 @@ function RestaurantList() {
                     <button className="btn btn-warning">Update</button>
                   </td>
                   <td>
-                    <button className="btn btn-danger">Delete</button>
+                    <button
+                      onClick={() => handleDelete(restaurant.id)}
+                      className="btn btn-danger"
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               );
