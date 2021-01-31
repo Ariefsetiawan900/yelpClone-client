@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import RestaurantsFinder from "../apis/RestaurantsFinder";
+import { RestaurantsContext } from "../context/RestaurantsContext";
 
 function RestaurantList() {
+  const { restaurants, setRestaurants } = useContext(RestaurantsContext);
+
+  useEffect(() => {
+    const fecthData = async () => {
+      try {
+        const response = await RestaurantsFinder.get("/");
+        // console.log(response);
+        setRestaurants(response.data.data.restaurants);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+    fecthData();
+  }, []);
   return (
     <div>
-      <table class="table table-hover table-dark">
+      <table className="table table-hover table-dark">
         <thead>
           <tr className="bg-primary">
             <th scope="col">Restaurant</th>
