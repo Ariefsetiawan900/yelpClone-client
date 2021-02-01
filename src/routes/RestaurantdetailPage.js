@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import RestaurantsFinder from "../apis/RestaurantsFinder";
+import StarRating from "../components/StarRating";
 
 const RestaurantDetailPage = () => {
-    const history = useHistory()
+  const history = useHistory();
   const { id } = useParams();
   const { selectedRestaurant, setSelectedRestaurant } = useContext(
     RestaurantsContext
@@ -24,8 +25,9 @@ const RestaurantDetailPage = () => {
   }, []);
   return (
     <div>
-      {selectedRestaurant && selectedRestaurant.name}
-      <br/><button onClick={() => history.goBack()} className="btn btn-warning my-3">
+      {selectedRestaurant && <StarRating rating={4.5}/>}
+      <br />
+      <button onClick={() => history.goBack()} className="btn btn-warning my-3">
         Back
       </button>
     </div>
