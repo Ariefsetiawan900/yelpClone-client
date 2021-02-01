@@ -73,11 +73,14 @@ function UpdateRestaurant(props) {
         <button
           onClick={handleSubmit}
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary btn-lg"
         >
           Submit
         </button>
       </form>
+      <button onClick={() => history.goBack()} className="btn btn-warning my-3">
+        Back
+      </button>
     </div>
   );
 }
