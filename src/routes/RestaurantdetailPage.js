@@ -32,13 +32,22 @@ const RestaurantDetailPage = () => {
           <h1 className="text-center display-1">
             {selectedRestaurant.restaurants.name}
           </h1>
+          <div className="text-center">
+            <StarRating
+              rating={selectedRestaurant.restaurants.average_rating}
+            />
+            <span className="text-warning ml-1">
+              {selectedRestaurant.restaurants.count
+                ? `(${selectedRestaurant.restaurants.count})`
+                : "(0)"}
+            </span>
+          </div>
           <div className="mt-3">
             <Reviews reviews={selectedRestaurant.reviews} />
           </div>
           <AddReview />
         </>
       )}
-      <br />
       <button onClick={() => history.goBack()} className="btn btn-warning my-3">
         Back
       </button>

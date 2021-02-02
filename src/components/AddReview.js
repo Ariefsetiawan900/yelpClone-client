@@ -21,7 +21,7 @@ const AddReview = () => {
         rating,
       });
       console.log(response);
-      history.push("/")
+      history.push("/");
       history.push(location.pathname);
     } catch (err) {
       console.log(err.message);
@@ -73,7 +73,7 @@ const AddReview = () => {
         <button
           onClick={handleSubmitReview}
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary btn-lg"
         >
           Submit
         </button>
