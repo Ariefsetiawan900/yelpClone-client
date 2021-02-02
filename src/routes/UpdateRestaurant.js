@@ -3,7 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import RestaurantsFinder from "../apis/RestaurantsFinder";
 
-function UpdateRestaurant(props) {
+const UpdateRestaurant = (props) => {
   const { id } = useParams();
   const { restaurants } = useContext(RestaurantsContext);
   const [name, setName] = useState("");
@@ -83,6 +83,6 @@ function UpdateRestaurant(props) {
       </button>
     </div>
   );
-}
+};
 
 export default UpdateRestaurant;

@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import RestaurantsFinder from "../apis/RestaurantsFinder";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 
-function RestaurantList() {
+const RestaurantList = () => {
   const { restaurants, setRestaurants } = useContext(RestaurantsContext);
   let history = useHistory();
 
@@ -97,6 +97,6 @@ function RestaurantList() {
       </table>
     </div>
   );
-}
+};
 
 export default RestaurantList;
